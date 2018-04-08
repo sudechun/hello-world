@@ -1,0 +1,19 @@
+一、建立SSH连接通道
+本地电脑上的git仓库和github的仓库之间的传输是通过ssh加密，需要设置好自己的本机的SSH
+首选确认自己本机用户主目录下是否有存在.ssh目录，目录下是否存在id_rsa和id_rsa.pub两个文件，没有的话打开shell终端（window用户打开git bash）
+创建SSH密钥输入：ssh-keygen -t rsa -C "你的邮箱名字@xxx.com"。弹出如下画面，选择密钥存放路径，通常情况下回车选择默认
+下一步会提示让你输入密码，可自行设置是否需要密码，不需要直接回车即可。
+二、GitHub添加SSH密钥
+打开账户的设置中心， 添加SSH密钥，将id_rsa.pub文件里的内容复制到Key选项框里，点击Add SSH key完成SSH密钥设置。
+三、创建远程仓库
+在github网站新建一个仓库
+四、关联远程仓库
+打开Shell终端（window用户打开git bash）进入到自己的仓库。
+执行：git remote add origin git@github.com:sudechun/hello-world.git。注意需要将sudechun换成自己的GitHub帐号。
+五、将本地仓库推送到远程仓库
+ 执行git push -u origin master将本地仓库推送到远程仓库。
+  在执行该命令时有时候会出错，原因是远程的文件未同步下来。
+  此时可以先执行：git pull --rebase origin master将远程文件同步下来。然后在执行推送即可
+  完成后在后续的推送文件到远程仓库中可直接执行git push origin master
+  
+git remote rm origin --删除已经存在的远程库
