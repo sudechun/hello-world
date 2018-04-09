@@ -166,3 +166,13 @@ Your branch is ahead of 'origin/master' by 1 commit.
 
 解决：
 git push
+
+
+Git鼓励大量使用分支,完成任务后合并分：
+查看分支：git branch
+创建分支：git branch <name>
+切换分支：git checkout <name>
+创建+切换分支：git checkout -b <name>
+合并某分支到当前分支：git merge <name>
+删除分支：git branch -d <name>
+
